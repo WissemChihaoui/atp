@@ -1,6 +1,5 @@
-console.log("start script")
 'use strict';
-(function () {
+$(function () {
     const previewTemplate = `<div class="dz-preview dz-file-preview">
 <div class="dz-details">
   <div class="dz-thumbnail">
@@ -19,7 +18,6 @@ console.log("start script")
 </div>`;
 
 const dropzoneBasic = document.querySelector('#add-company-logo');
-console.log(dropzoneBasic)
   if (dropzoneBasic) {
     const myDropzone = new Dropzone(dropzoneBasic, {
       previewTemplate: previewTemplate,
