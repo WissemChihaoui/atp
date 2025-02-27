@@ -24,6 +24,8 @@ $(function () {
     });
   }
 
+  const addCompany = 'add.html';
+
   if (dt_companies_table.length) {
     var dt_companies = dt_companies_table.DataTable({
       ajax: assetsPath + "json/sidecare-companies-data.json",
@@ -333,10 +335,9 @@ $(function () {
         {
           text: '<i class="ti ti-plus me-0 me-sm-1 mb-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter</span>',
           className: "add-new btn btn-primary py-2",
-          attr: {
-            "data-bs-toggle": "offcanvas",
-            "data-bs-target": "#offcanvasEcommerceCustomerAdd",
-          },
+          action: function () {
+            window.location.href = addCompany;
+          }
         },
       ],
 
