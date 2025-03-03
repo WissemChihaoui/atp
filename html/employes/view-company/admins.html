@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/assets/"
+  data-template="vertical-menu-template-starter"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Side Care</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/fav.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/assets/vendor/fonts/tabler-icons.css" />
+    <!-- <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome.css" /> -->
+    <!-- <link rel="stylesheet" href="/assets/vendor/fonts/flag-icons.css" /> -->
+
+    <!-- Core CSS -->
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/css/rtl/core.css"
+      class="template-customizer-core-css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/css/rtl/theme-default.css"
+      class="template-customizer-theme-css"
+    />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/node-waves/node-waves.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
+    />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="/assets/vendor/libs/dropzone/dropzone.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/@form-validation/umd/styles/index.min.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/animate-css/animate.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/sweetalert2/sweetalert2.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/tagify/tagify.css" />
+
+    <!-- Helpers -->
+    <script src="/assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="/assets/vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside
+          id="layout-menu"
+          class="layout-menu menu-vertical menu bg-menu-theme"
+        >
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link">
+              <span class="app-brand-logo demo">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="334"
+                  height="334"
+                  viewBox="0 0 334 334"
+                  fill="none"
+                >
+                  <path
+                    d="M307.132 166.635C307.132 244.229 244.229 307.131 166.635 307.131C89.0415 307.131 26.1392 244.229 26.1392 166.635C26.1392 89.041 89.0415 26.1387 166.635 26.1387C244.229 26.1387 307.132 89.041 307.132 166.635Z"
+                    fill="#301111"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M333.27 166.635C333.27 258.665 258.665 333.27 166.635 333.27C74.6051 333.27 0 258.665 0 166.635C0 74.6051 74.6051 0 166.635 0C258.665 0 333.27 74.6051 333.27 166.635ZM166.635 307.132C244.229 307.132 307.132 244.229 307.132 166.635C307.132 89.0412 244.229 26.1389 166.635 26.1389C89.0412 26.1389 26.1389 89.0412 26.1389 166.635C26.1389 244.229 89.0412 307.132 166.635 307.132Z"
+                    fill="#FF7B44"
+                  />
+                  <path
+                    d="M264.655 86.0402C270.995 86.0402 277.173 86.7347 283.116 88.0516C257.865 50.6965 215.118 26.1387 166.635 26.1387C118.024 26.1387 75.1787 50.8264 49.9539 88.3478C56.2912 86.839 62.9039 86.0402 69.7031 86.0402C116.62 86.0402 154.654 124.074 154.654 170.992C154.654 177.544 153.912 183.924 152.508 190.051L182.669 193.318C180.736 186.204 179.704 178.718 179.704 170.992C179.704 124.074 217.738 86.0402 264.655 86.0402Z"
+                    fill="#594141"
+                  />
+                  <path
+                    d="M167.724 166.636C154.137 166.636 144.461 176.755 135.749 187.22C130.406 193.638 130.345 203.445 136.853 208.679C145.281 215.456 154.708 219.414 167.724 219.414C180.74 219.414 190.167 215.456 198.595 208.679C205.104 203.445 205.042 193.638 199.699 187.22C190.988 176.755 181.311 166.636 167.724 166.636Z"
+                    fill="#E8A23B"
+                  />
+                  <path
+                    d="M288.648 182.227C288.931 179.147 289.397 176.074 289.616 172.989C289.675 172.149 289.706 171.302 289.706 170.447C289.706 150.898 273.858 135.051 254.309 135.051C234.76 135.051 218.913 150.898 218.913 170.447C218.913 185.871 224.795 203.251 214.257 214.513C202.63 226.939 186.084 234.705 167.724 234.705C149.72 234.705 133.461 227.238 121.873 215.231C111.751 204.742 116.536 188.291 116.536 173.715C116.536 154.166 100.688 138.318 81.1393 138.318C68.1242 138.318 56.7498 145.344 50.6003 155.808C49.3207 157.871 48.2961 160.105 47.5658 162.472C46.3834 166.006 45.7429 169.783 45.7429 173.715C45.7429 175.048 45.8166 176.364 45.9601 177.659C46.3137 180.849 46.9348 184.013 47.3589 187.194C55.2796 246.602 106.15 292.428 167.724 292.428C231.004 292.428 282.979 244.028 288.648 182.227Z"
+                    fill="#FFE7BF"
+                  />
+                  <path
+                    d="M95.8162 187.138C100.504 182.946 103.466 176.777 103.466 169.902C103.466 157.271 93.47 147.03 81.1392 147.03C68.8084 147.03 58.8123 157.271 58.8123 169.902C58.8123 176.215 61.3097 181.931 65.3479 186.071C65.438 177.726 72.2297 170.991 80.5946 170.991C89.0157 170.991 95.8423 177.817 95.8423 186.239C95.8423 186.541 95.8335 186.841 95.8162 187.138Z"
+                    fill="#301111"
+                  />
+                  <path
+                    d="M268.987 187.138C273.675 182.946 276.637 176.777 276.637 169.902C276.637 157.271 266.641 147.03 254.31 147.03C241.979 147.03 231.983 157.271 231.983 169.902C231.983 176.215 234.48 181.931 238.519 186.071C238.609 177.726 245.4 170.991 253.765 170.991C262.186 170.991 269.013 177.817 269.013 186.239C269.013 186.541 269.004 186.841 268.987 187.138Z"
+                    fill="#301111"
+                  />
+                </svg>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold"
+                >Side Care</span
+              >
+            </a>
+
+            <a
+              href="javascript:void(0);"
+              class="layout-menu-toggle menu-link text-large ms-auto"
+            >
+              <i
+                class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"
+              ></i>
+              <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Page -->
+            <li class="menu-item">
+              <a href="/index.html" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div>Tableau de bord</div>
+              </a>
+            </li>
+            <li class="menu-item active open">
+              <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-users"></i>
+                <div>Employés</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item active">
+                  <a href="/html/employes/entreprises.html" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Entreprises</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Effectifs</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-user-cog"></i>
+                <div>Gestion RH</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Suivi des démarches RH</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Calendrier</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Entetiens</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Templates de documents</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-calendar-event"></i>
+                <div>Gestion du temps</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Congés & absences</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-app-window"></i>
+                <div>Variables de paie (EVP)</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Prime</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Note de frais</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Titres de transport</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0)" class="menu-link">
+                    <i class="menu-icon tf-icons ri-shopping-cart-2-line"></i>
+                    <div>Clôture</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0)" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-user"></i>
+                <div>Mon Compte</div>
+              </a>
+            </li>
+          </ul>
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+          <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
+            <div
+              class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none"
+            >
+              <a
+                class="nav-item nav-link px-0 me-xl-4"
+                href="javascript:void(0)"
+              >
+                <i class="ti ti-menu-2 ti-sm"></i>
+              </a>
+            </div>
+
+            <div
+              class="navbar-nav-right d-flex align-items-center"
+              id="navbar-collapse"
+            >
+              <div class="navbar-nav align-items-center">
+                <div
+                  class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0"
+                >
+                  <a
+                    class="nav-link dropdown-toggle hide-arrow"
+                    href="javascript:void(0);"
+                    data-bs-toggle="dropdown"
+                  >
+                    <i class="ti ti-md"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-start dropdown-styles">
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                        data-theme="light"
+                      >
+                        <span class="align-middle"
+                          ><i class="ti ti-sun me-2"></i>Light</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                        data-theme="dark"
+                      >
+                        <span class="align-middle"
+                          ><i class="ti ti-moon me-2"></i>Dark</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                        data-theme="system"
+                      >
+                        <span class="align-middle"
+                          ><i class="ti ti-device-desktop me-2"></i>System</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a
+                    class="nav-link dropdown-toggle hide-arrow"
+                    href="javascript:void(0);"
+                    data-bs-toggle="dropdown"
+                  >
+                    <div class="avatar avatar-online">
+                      <img
+                        src="/assets/img/avatars/1.png"
+                        alt
+                        class="h-auto rounded-circle"
+                      />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img
+                                src="/assets/img/avatars/1.png"
+                                alt
+                                class="h-auto rounded-circle"
+                              />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-medium d-block">John Doe</span>
+                            <small class="text-muted">Admin</small>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="ti ti-user-check me-2 ti-sm"></i>
+                        <span class="align-middle">My Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="ti ti-settings me-2 ti-sm"></i>
+                        <span class="align-middle">Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <span class="d-flex align-items-center align-middle">
+                          <i
+                            class="flex-shrink-0 ti ti-credit-card me-2 ti-sm"
+                          ></i>
+                          <span class="flex-grow-1 align-middle">Billing</span>
+                          <span
+                            class="flex-shrink-0 badge badge-center rounded-pill bg-label-danger w-px-20 h-px-20"
+                            >2</span
+                          >
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="ti ti-logout me-2 ti-sm"></i>
+                        <span class="align-middle">Log Out</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="py-3 mb-4">
+                <span class="text-muted fw-light">Entreprises /</span> Voir
+              </h4>
+              <!-- Navbar pills -->
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills flex-column flex-sm-row mb-4">
+                    <li class="nav-item">
+                      <a class="nav-link " href="javascript:void(0);"
+                        ><i class="ti-xs ti ti-info-circle me-1"></i>
+                        Information</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="documents.html"
+                        ><i class="ti-xs ti ti-file me-1"></i> Documents</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="admins.html"
+                        ><i class="ti-xs ti ti-user-cog me-1"></i>
+                        Administrateur</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="effectifs.html"
+                        ><i class="ti-xs ti ti-users me-1"></i> Effectifs</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-datatable table-responsive">
+                  <table class="datatables-admins table border-top">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Nom et Prénom</th>
+                        <th>Droit</th>
+                        <th>Rôles</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+      <div class="modal fade" id="addAdminCompanyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalCenterTitle">Affecter un admin</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="adminToAdd" class="form-label">Name</label>
+                  <input
+                            id="adminToAdd"
+                            name="adminToAdd"
+                            class="form-control"
+                            value="abatisse2@nih.gov, Justinian Hattersley" />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                Annuler
+              </button>
+              <button type="button" class="btn btn-primary">Enregistrer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+
+    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/assets/vendor/js/bootstrap.js"></script>
+    <script src="/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="/assets/vendor/js/menu.js"></script>
+
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="/assets/vendor/libs/dropzone/dropzone.js"></script>
+    <script src="/assets/vendor/libs/moment/moment.js"></script>
+    <script src="/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <script src="/assets/vendor/libs/select2/select2.js"></script>
+    <script src="/assets/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="/assets/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="/assets/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="/assets/vendor/libs/cleavejs/cleave.js"></script>
+    <script src="/assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+    <script src="/assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+    <script src="/assets/vendor/libs/tagify/tagify.js"></script>
+
+
+    <!-- Main JS -->
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+     <script src="/assets/js/sidecare-companies-view.js"></script>
+  </body>
+</html>
