@@ -17,6 +17,7 @@ $(function () {
 </div>
 </div>`;
 
+
 const dropzoneBasic = document.querySelector('#view-logo-company'),
       companyDocumentDropzone = document.querySelector('#company-document-dropzone');
 
@@ -46,12 +47,21 @@ const dropzoneBasic = document.querySelector('#view-logo-company'),
       adminView = "#";
 
       if (select2.length) {
-        var $this = select2;
-        $this.wrap('<div class="position-relative"></div>').select2({
-          placeholder: "United States ",
-          dropdownParent: $this.parent(),
+        select2.each(function () {
+          var $this = $(this);
+          $this.wrap("<div class='position-relative'></div>").select2({
+            placeholder: "",
+            dropdownParent: $this.parent(),
+          });
         });
       }
+      select2.each(function () {
+        var $this = $(this);
+        $this.wrap("<div class='position-relative'></div>").select2({
+          placeholder: "",
+          dropdownParent: $this.parent(),
+        });
+      });
 
   if(dt_admins_table) {
     var dt_admins = dt_admins_table.DataTable({
@@ -599,19 +609,26 @@ const dropzoneBasic = document.querySelector('#view-logo-company'),
 $(function () {
   var dt_effectifs_table = $('.datatables-effectifs'),
       select2 = $(".select2"),
+     flatpickrDate = document.querySelector('#flatpickr-date'),
       adminView = "#";
+
+      if (flatpickrDate) {
+        flatpickrDate.flatpickr({
+          monthSelectorType: 'static'
+        });
+      }
 
   if (dt_effectifs_table.length) {
     var dt_effectif = dt_effectifs_table.DataTable({
       ajax: assetsPath + "json/sidecare-effectifs-company.json",
       columns: [
-        { data: "" },
-        { data: "name"},
-        { data: "contract"},
-        { data: "poste"},
-        { data: "contractStart"},
-        { data: "contractEnd"},
-        { data: ""},
+        { data: "" },  // Control column
+        { data: "name" },
+        { data: "contract" },
+        { data: "poste" },
+        { data: "contractStart" },
+        { data: "contractEnd" },
+        { data: "" },  // Actions column (this is misplaced)
       ],
       columnDefs: [
         {
@@ -702,12 +719,14 @@ $(function () {
       ],
       order: [[2, 'desc']],
       dom:
-        '<"card-header flex-column flex-md-row py-2"<"head-label text-center pt-2 pt-md-0">f' +
-        '>t' +
-        '<"row mx-4"' +
-        '<"col-md-12 col-xl-6 text-center text-xl-start pb-2 pb-lg-0 pe-0"i>' +
-        '<"col-md-12 col-xl-6 d-flex justify-content-center justify-content-xl-end"p>' +
-        '>',
+        '<"card-header d-flex flex-wrap pb-md-2"' +
+        '<"d-flex align-items-center me-5"f>' +
+        '<"dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-md-end gap-3 gap-sm-0 flex-wrap flex-sm-nowrap"lB>' +
+        ">t" +
+        '<"row mx-2"' +
+        '<"col-sm-12 col-md-6"i>' +
+        '<"col-sm-12 col-md-6"p>' +
+        ">",
       lengthMenu: [6, 30, 50, 70, 100],
       language: {
         sLengthMenu: "Afficher _MENU_ entrées",
@@ -732,6 +751,171 @@ $(function () {
             ": activer pour trier la colonne par ordre décroissant",
         },
       },
+      buttons: [
+        {
+          extend: "collection",
+          className: "btn btn-label-secondary dropdown-toggle me-3",
+          text: '<i class="ti ti-download me-1"></i>Exporter',
+          buttons: [
+            {
+              extend: "print",
+              text: '<i class="ti ti-printer me-2" ></i>Imprimer',
+              className: "dropdown-item",
+              exportOptions: {
+                columns: [1, 2, 3, 4, 5, 6],
+                // prevent avatar to be print
+                format: {
+                  body: function (inner, coldex, rowdex) {
+                    if (inner.length <= 0) return inner;
+                    var el = $.parseHTML(inner);
+                    var result = "";
+                    $.each(el, function (index, item) {
+                      if (
+                        item.classList !== undefined &&
+                        item.classList.contains("customer-name")
+                      ) {
+                        result = result + item.lastChild.firstChild.textContent;
+                      } else if (item.innerText === undefined) {
+                        result = result + item.textContent;
+                      } else result = result + item.innerText;
+                    });
+                    return result;
+                  },
+                },
+              },
+              customize: function (win) {
+                //customize print view for dark
+                $(win.document.body)
+                  .css("color", headingColor)
+                  .css("border-color", borderColor)
+                  .css("background-color", bodyBg);
+                $(win.document.body)
+                  .find("table")
+                  .addClass("compact")
+                  .css("color", "inherit")
+                  .css("border-color", "inherit")
+                  .css("background-color", "inherit");
+              },
+            },
+            {
+              extend: "csv",
+              text: '<i class="ti ti-file me-2" ></i>CSV',
+              className: "dropdown-item",
+              exportOptions: {
+                columns: [1, 2, 3, 4, 5, 6],
+                // prevent avatar to be display
+                format: {
+                  body: function (inner, coldex, rowdex) {
+                    if (inner.length <= 0) return inner;
+                    var el = $.parseHTML(inner);
+                    var result = "";
+                    $.each(el, function (index, item) {
+                      if (
+                        item.classList !== undefined &&
+                        item.classList.contains("customer-name")
+                      ) {
+                        result = result + item.lastChild.firstChild.textContent;
+                      } else if (item.innerText === undefined) {
+                        result = result + item.textContent;
+                      } else result = result + item.innerText;
+                    });
+                    return result;
+                  },
+                },
+              },
+            },
+            {
+              extend: "excel",
+              text: '<i class="ti ti-file-export me-2"></i>Excel',
+              className: "dropdown-item",
+              exportOptions: {
+                columns: [1, 2, 3, 4, 5, 6],
+                // prevent avatar to be display
+                format: {
+                  body: function (inner, coldex, rowdex) {
+                    if (inner.length <= 0) return inner;
+                    var el = $.parseHTML(inner);
+                    var result = "";
+                    $.each(el, function (index, item) {
+                      if (
+                        item.classList !== undefined &&
+                        item.classList.contains("customer-name")
+                      ) {
+                        result = result + item.lastChild.firstChild.textContent;
+                      } else if (item.innerText === undefined) {
+                        result = result + item.textContent;
+                      } else result = result + item.innerText;
+                    });
+                    return result;
+                  },
+                },
+              },
+            },
+            {
+              extend: "pdf",
+              text: '<i class="ti ti-file-text me-2"></i>Pdf',
+              className: "dropdown-item",
+              exportOptions: {
+                columns: [1, 2, 3, 4, 5, 6],
+                // prevent avatar to be display
+                format: {
+                  body: function (inner, coldex, rowdex) {
+                    if (inner.length <= 0) return inner;
+                    var el = $.parseHTML(inner);
+                    var result = "";
+                    $.each(el, function (index, item) {
+                      if (
+                        item.classList !== undefined &&
+                        item.classList.contains("customer-name")
+                      ) {
+                        result = result + item.lastChild.firstChild.textContent;
+                      } else if (item.innerText === undefined) {
+                        result = result + item.textContent;
+                      } else result = result + item.innerText;
+                    });
+                    return result;
+                  },
+                },
+              },
+            },
+            {
+              extend: "copy",
+              text: '<i class="ti ti-copy me-2" ></i>Copier',
+              className: "dropdown-item",
+              exportOptions: {
+                columns: [1, 2, 3, 4, 5, 6],
+                // prevent avatar to be display
+                format: {
+                  body: function (inner, coldex, rowdex) {
+                    if (inner.length <= 0) return inner;
+                    var el = $.parseHTML(inner);
+                    var result = "";
+                    $.each(el, function (index, item) {
+                      if (
+                        item.classList !== undefined &&
+                        item.classList.contains("customer-name")
+                      ) {
+                        result = result + item.lastChild.firstChild.textContent;
+                      } else if (item.innerText === undefined) {
+                        result = result + item.textContent;
+                      } else result = result + item.innerText;
+                    });
+                    return result;
+                  },
+                },
+              },
+            },
+          ],
+        },
+        {
+          text: '<i class="ti ti-plus me-0 me-sm-1 mb-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter</span>',
+          className: "add-new btn btn-primary py-2",
+          attr: {
+            'data-bs-toggle': 'offcanvas',
+            'data-bs-target': '#addAdminCompanyModal'
+          }
+        },
+      ],
       responsive: {
         details: {
           display: $.fn.dataTable.Responsive.display.modal({

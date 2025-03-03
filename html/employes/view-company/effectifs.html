@@ -59,17 +59,45 @@
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="/assets/vendor/libs/dropzone/dropzone.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/node-waves/node-waves.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/typeahead-js/typeahead.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css"
+    />
     <link rel="stylesheet" href="/assets/vendor/libs/select2/select2.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/@form-validation/umd/styles/index.min.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/@form-validation/umd/styles/index.min.css"
+    />
     <link rel="stylesheet" href="/assets/vendor/libs/animate-css/animate.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/sweetalert2/sweetalert2.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/libs/sweetalert2/sweetalert2.css"
+    />
     <link rel="stylesheet" href="/assets/vendor/libs/tagify/tagify.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/pickr/pickr-themes.css" />
+
+
 
     <!-- Helpers -->
     <script src="/assets/vendor/js/helpers.js"></script>
@@ -434,7 +462,7 @@
                 <div class="col-md-12">
                   <ul class="nav nav-pills flex-column flex-sm-row mb-4">
                     <li class="nav-item">
-                      <a class="nav-link " href="javascript:void(0);"
+                      <a class="nav-link" href="javascript:void(0);"
                         ><i class="ti-xs ti ti-info-circle me-1"></i>
                         Information</a
                       >
@@ -445,7 +473,7 @@
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="admins.html"
+                      <a class="nav-link" href="admins.html"
                         ><i class="ti-xs ti ti-user-cog me-1"></i>
                         Administrateur</a
                       >
@@ -470,11 +498,88 @@
                         <th>Poste</th>
                         <th>Début de contrat</th>
                         <th>Fin de contrat</th>
-                        <th>Actions</th>
+                        <th></th>
+                        <!-- This should be for the "Actions" column -->
                       </tr>
                     </thead>
                   </table>
                 </div>
+                <div
+                class="offcanvas offcanvas-end"
+                tabindex="-1"
+                id="addAdminCompanyModal"
+                aria-labelledby="addAdminCompanyModalLabel">
+                <div class="offcanvas-header">
+                  <h5 id="addAdminCompanyModalLabel" class="offcanvas-title">Ajouter effectif</h5>
+                  <button
+                    type="button"
+                    class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body mx-0 flex-grow-0">
+                  <form class="ecommerce-customer-add pt-0" id="eCommerceCustomerAddForm" onsubmit="return false">
+                    <div class="ecommerce-customer-add-basic mb-3">
+                      <div class="mb-3">
+                        <label class="form-label" for="ecommerce-customer-add-name">Nom*</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="ecommerce-customer-add-name"
+                          placeholder="John Doe"
+                          name="customerName"
+                          aria-label="John Doe" />
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label" for="ecommerce-customer-add-email">Email*</label>
+                        <input
+                          type="text"
+                          id="ecommerce-customer-add-email"
+                          class="form-control"
+                          placeholder="john.doe@example.com"
+                          aria-label="john.doe@example.com"
+                          name="customerEmail" />
+                      </div>
+                      <div>
+                        <label class="form-label" for="side-add-effectif-company">Entreprise</label>
+                        <select id="side-add-effectif-company" placeholder="" class="select2 form-select">
+                          <option value="" selected>Select</option>
+                          <option value="Société 1">Société 1</option>
+                          <option value="Société 2">Société 2</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="ecommerce-customer-add-basic mb-3">
+                      <h6 class="mb-3">Shipping Information</h6>
+                      <div>
+                        <label class="form-label" for="side-add-effectif-contract">Type de contrat</label>
+                        <select id="side-add-effectif-contract" placeholder="" class="select2 form-select">
+                          <option value="" selected>Select</option>
+                          <option value="contract 1">contract 1</option>
+                          <option value="contract 2">contract 2</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label class="form-label" for="side-add-effectif-poste">Poste</label>
+                        <select id="side-add-effectif-poste" placeholder="" class="select2 form-select">
+                          <option value="" selected>Select</option>
+                          <option value="Poste 1">Poste 1</option>
+                          <option value="Poste 2">Poste 2</option>
+                        </select>
+                      </div>
+                      <div >
+                        <label for="flatpickr-date" class="form-label">Date d'entrée dans l'entreprise</label>
+                        <input type="text" class="form-control" placeholder="YYYY-MM-DD" id="flatpickr-date" />
+                      </div>
+                    </div>
+
+                    <div class="pt-3">
+                      <button type="submit" class="btn btn-primary me-sm-3 me-1 data-submit">Add</button>
+                      <button type="reset" class="btn btn-label-danger" data-bs-dismiss="offcanvas">Discard</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
               </div>
             </div>
             <!-- / Content -->
@@ -484,38 +589,6 @@
           <!-- Content wrapper -->
         </div>
         <!-- / Layout page -->
-      </div>
-      <div class="modal fade" id="addAdminCompanyModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalCenterTitle">Affecter un admin</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="adminToAdd" class="form-label">Name</label>
-                  <input
-                            id="adminToAdd"
-                            name="adminToAdd"
-                            class="form-control"
-                            value="abatisse2@nih.gov, Justinian Hattersley" />
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
-                Annuler
-              </button>
-              <button type="button" class="btn btn-primary">Enregistrer</button>
-            </div>
-          </div>
-        </div>
       </div>
       <!-- Overlay -->
       <div class="layout-overlay layout-menu-toggle"></div>
@@ -538,7 +611,6 @@
     <script src="/assets/vendor/libs/typeahead-js/typeahead.js"></script>
     <script src="/assets/vendor/js/menu.js"></script>
 
-
     <!-- endbuild -->
 
     <!-- Vendors JS -->
@@ -553,12 +625,15 @@
     <script src="/assets/vendor/libs/cleavejs/cleave-phone.js"></script>
     <script src="/assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
     <script src="/assets/vendor/libs/tagify/tagify.js"></script>
+    <script src="/assets/vendor/libs/pickr/pickr.js"></script>
+    <script src="/assets/vendor/libs/flatpickr/flatpickr.js"></script>
+
 
 
     <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
 
     <!-- Page JS -->
-     <script src="/assets/js/sidecare-companies-view.js"></script>
+    <script src="/assets/js/sidecare-companies-view.js"></script>
   </body>
 </html>
